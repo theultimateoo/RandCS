@@ -27,17 +27,26 @@ public class Crossword{
 	}
     }
 
-    /*    public String toString(){
+    public String toString(){
+	String s;
+	s = "";
+	for(int i=0; i < array.length; i++ ){
+	    for(int j=0; j<array[i].length; j++) {
+		s = s + array[i][j];
+	    }
+	    s = s + '\n';
+	}
+	return s;
+    }
 
-	  }*/
-/*    public void addWord(String word, int acrosspos, int downpos, String orientation){
+    public void addWord(String word, int acrosspos, int downpos, String orientation){
 	int a = array[acrosspos].length;
         int b = array[downpos].length;
 	int c = acrosspos;
 	int d = downpos;
 	String w = word;
 
-	if (orientation.equals("ACROSS")){
+	if (orientation.equals("DOWN")){
 	    if(c >= 0 && c < b && d >= 0 && d < a && w.length() <= b ){
 		//First 4 if conditions test to see that the word is within the grid
 		//Last condition tests to see if the word is short enough to fit in the grid.
@@ -49,16 +58,46 @@ public class Crossword{
 		    k++;//move onto the next character
 		    array[b - i - 1][a - d - 1] = '*';
 		}
+	     
 		    
 	    }
 		
 	//if added word successful, thus add letter at (a,b), given array(X,Y) - (X - a - 1, Y - b - 1) has to be a *.
 	//if word.length < array length in direction of orientation - pos, then allow
 	}
-    }*/
+
+	if (orientation.equals("ACROSS")){
+	    if(c >= 0 && c < b && d >= 0 && d < a && w.length() <= a ){
+		//First 4 if conditions test to see that the word is within the grid
+		//Last condition tests to see if the word is short enough to fit in the grid.
+		//Note: Going by array convention: 0 to columns - 1, 0 to rows - 1
+	
+		int k = 0;//initialize k to equal 0
+		for(int i = d; i < w.length(); i++){
+		    array[i][c] = w.charAt(k);//set (i,j)=the kth character of the string, starting with 0
+		    k++;//move onto the next character
+		    array[a - i - 1][b - c - 1] = '*';
+		}
+	     
+		    
+	    }
+		
+	//if added word successful, thus add letter at (a,b), given array(X,Y) - (X - a - 1, Y - b - 1) has to be a *.
+	//if word.length < array length in direction of orientation - pos, then allow
+	}
+
+
+
+
+
+    }
 	public static void main(String[] args){
 	    Crossword cr = new Crossword();
-	    Crossword cq = new Crossword(3,5);
+	    Crossword cq = new Crossword(23,23);
+	    // System.out.print(cr);
+	    cq.addWord("wow",0,0,"DOWN");
+	    cq.addWord("wrtji",5,5,"ACROSS");
+	    System.out.print(cq);
 	}
 
 
