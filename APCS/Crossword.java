@@ -86,11 +86,19 @@ public class Crossword{
 			k++;
 		    }
 		    
-		    k = 0;
+		    if(c >= 1 && array[c-1][d] != CHAR_INIT){//look at the character above, if it is initial char, do nothing.
+			conflict = true;
+		    }
+			
+		    if(w.length()+1 <= b-c && array[c+w.length()][d] != CHAR_INIT){
+			conflict = true;
+		    }
+
+		    k = 0;//reinitialize k = 0
 		    
 		    if (conflict == false){
 			starts[c][d] = true;
-			starts[a - (c + w.length() - 1) - 1][b - d - 1] = true;
+			starts[b - (c + w.length() - 1) - 1][a - d - 1] = true;
 			if (c >= 1){
 			    arraySpaces[c-1][d] = true;
 			}
@@ -100,7 +108,7 @@ public class Crossword{
 			    for(int i = c; k < w.length(); i++){
 				array[i][d] = w.charAt(k); //set (i,d)=the kth character of the string, starting with 0. d is constant. changing i changes the row.
 				k++;//move onto the next character
-				array[b - i - 1][a - d - 1] = '*';
+				array[b - i - 1][a - d - 1] = '*';//the math for this is essential when considering non-square grids
 			    }
 			}	    
 		    }
@@ -123,12 +131,20 @@ public class Crossword{
 			}
 			k++;
 		    }
+		    
+		    if(c >= 1 && array[c][d-1] != CHAR_INIT){//look at the character above, if it is initial char, do nothing.
+			conflict = true;
+		    }
+			
+		    if(w.length()+1 <= a-d && array[c][d+w.length()] != CHAR_INIT){
+			conflict = true;
+		    }
 		
-		    k = 0;
+		    k = 0;//reinitialize k = 0
 	
 		    if (conflict == false){
 			starts[c][d] = true;    
-			starts[a - c - 1][b - (d + w.length() - 1) - 1] = true;
+			starts[b - c - 1][a - (d + w.length() - 1) - 1] = true;
 			if (d >= 1){
 			    arraySpaces[c][d-1] = true;
 			}
@@ -138,7 +154,7 @@ public class Crossword{
 			for(int i = d; k < w.length(); i++){
 			    array[c][i] = w.charAt(k);//set (c,i)=the kth character of the string, starting with 0
 			    k++;//move onto the next character
-			    array[a - c - 1][b - i - 1] = '*';
+			    array[b - c - 1][a - i - 1] = '*';//the math for this is essential when considering non-square grids
 			}
 		    }    
 		}	
