@@ -81,6 +81,39 @@ public class ProjectEuler {
 		}
 		return true;
 	}
+
+	//DIVISOR COUNTER
+	public int numDivis(int a){
+		int number = a;
+		int divisor = 2;
+		int[] primeholder = new int[100];
+		int[] primepower = new int[100];
+		int primeholderpos = 0;
+		int primepowerpos = 0;
+		while(number > 1){
+			if(isPrime(divisor) == true){
+				if(number % divisor == 0){
+					primeholder[primeholderpos] = divisor;
+					primepower[primepowerpos]++;
+					number = number / divisor;
+				}
+				else{
+					primeholderpos++;//there is a problem that it adds for nonprimes as well
+					primepowerpos++;
+					divisor++;
+				}
+			}
+			else{
+				divisor++;
+			}
+		}
+		int answer = 1;
+		for(int i = 0; i < primepower.length; i++){
+			answer = answer * primepower[i];
+		}
+		return answer;
+	}
+
 //================================PROBLEM METHODS==========================================
 
 
@@ -250,7 +283,15 @@ public class ProjectEuler {
 
 	//PROBLEM 12
 	public void p12(){
-
+		int tri = 1;
+		boolean gotAns = false;
+		for(int i = 2; gotAns == false; i++){
+			if(numDivis(tri) > 500){
+				gotAns = true;
+				System.out.println(numDivis(tri));
+			}
+			tri = tri + i;
+		}
 	}	
 
 	public static void main(String[]args){
@@ -264,7 +305,7 @@ public class ProjectEuler {
 	//	solutioner.p9();
 	//	solutioner.p10();
 	//	solutioner.p11();
-		
+		solutioner.p12();
 	}
 
 }
