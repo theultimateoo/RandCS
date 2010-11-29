@@ -285,12 +285,12 @@ public class ProjectEuler {
 	public void p12(){
 		int tri = 1;
 		boolean gotAns = false;
-		for(int i = 2; gotAns == false; i++){
+		for(int j = 2; gotAns == false; j++){
 			if(numDivis(tri) > 500){
 				gotAns = true;
 				System.out.println(numDivis(tri));
 			}
-			tri = tri + i;
+			tri = tri + j;
 		}
 	}	
 
