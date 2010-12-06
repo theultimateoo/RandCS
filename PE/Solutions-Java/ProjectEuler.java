@@ -358,6 +358,26 @@ public class ProjectEuler {
     }
     System.out.println(answer);
   }
+  
+  
+  
+  //PROBLEM 25
+  public void p25(){
+    BigInteger dummy = new BigInteger("1");
+    BigInteger fibone = new BigInteger("1");
+    BigInteger fibtwo = new BigInteger("2");
+    BigInteger ten = new BigInteger("10");
+    BigInteger tenten = ten.pow(999);
+    int i = 3;
+    while(fibtwo.compareTo(tenten) == -1){
+      i++;
+      dummy = fibtwo;
+      fibtwo = fibtwo.add(fibone);
+      fibone = dummy;
+    }
+    System.out.println(i);
+  }
+  
   //PROBLEM 48
   public void p48(){
     BigInteger dummy = new BigInteger("1");
@@ -389,6 +409,7 @@ public class ProjectEuler {
     // solutioner.p15();
     // solutioner.p16();
     // solutioner.p20();
+    solutioner.p25();
     // solutioner.p48();
   }
   
