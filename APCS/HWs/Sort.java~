@@ -81,21 +81,7 @@ public class Sort {
         return;
     } //end loop: i
   }
-  
-  public void selection(){
-    int start;//starting position for comparing
-    int minimum;//minimum position
-    for (start = 0; start < list.length; start++){// start at each index
-      minimum = start; //first assume that the starting position is the minimum pos
-      for(int i = start + 1; i < list.length; i++){
-        if(list[i] < list[minimum]){//check all numbers of index i > starting pos
-          minimum = i;//set minimum pos = i if list[i] is smaller
-        }
-      }
-      swap(minimum,start);//swap the smallest and the minimum (can be the same)
-    }
-  }
-  
+
   public static void main(String[] args) {
     
     Sort s = new Sort(25);
