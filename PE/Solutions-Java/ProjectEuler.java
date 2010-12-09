@@ -345,7 +345,7 @@ public class ProjectEuler {
   //PROBLEM 17
   public void p17(){
 	int count = 0;
-	//one, two, six, nine, four, five, seven, three, eight, 
+	//one, two, six, nine, four, five, seven, three, eight 
 	
 	for(int i = 1; i < 1000; i++){
 		if(i > 100 && i % 100 != 0){
@@ -358,14 +358,14 @@ public class ProjectEuler {
 			else if(i % 100 == 11 || i % 100 == 12){//eleven, twelve
 				count+=6;
 			}
-			else if(i % 100 == 13 || i % 100 == 14){//thirteen, fourteen
+			else if(i % 100 == 13 || i % 100 == 14 || i % 100 == 18 || i % 100 == 19){//thirteen, fourteen, eighteen, nineteen
 				count+=8;
 			}
-			else if(i % 100 == 15){//fifteen
+			else if(i % 100 == 15 || i % 100 == 16){//fifteen, sixteen
 				count+=7;
 			}
-			else{//16 -> 19
-				count+=4;
+			else if(i % 100 == 17){
+				count+=9;
 			}
 		}
 		//Singles place		
@@ -409,8 +409,9 @@ public class ProjectEuler {
 		}
 	}
 		count+=11;
+		count+=(900*7);
 		System.out.println(count);
-  }
+		}
   //PROBLEM 19
   public void p19(){
     int month; // 1 = January
@@ -505,7 +506,8 @@ public class ProjectEuler {
     // solutioner.p13();
     // solutioner.p15();
     // solutioner.p16();
-    solutioner.p19();
+	solutioner.p17();
+    // solutioner.p19();
     // solutioner.p20();
     // solutioner.p25();
     // solutioner.p48();
