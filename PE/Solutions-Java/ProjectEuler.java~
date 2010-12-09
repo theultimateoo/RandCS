@@ -348,9 +348,6 @@ public class ProjectEuler {
 	//one, two, six, nine, four, five, seven, three, eight, 
 	
 	for(int i = 1; i < 1000; i++){
-		if(i > 100 && i % 100 != 0){
-			count+=3;
-		}
 		if(i % 100 > 9  && i % 100 < 20){
 			if(i % 100 == 10){//ten
 				count+=3;
@@ -368,48 +365,18 @@ public class ProjectEuler {
 				count+=4;
 			}
 		}
-		//Singles place		
-		if((i % 10 == 1 || i % 10 == 2 || i % 10 == 6) && (i % 100 < 10 || i % 100 > 19)){
+		if(i % 10 == 1 || i % 10 == 2 || i % 10 == 6){
 			count+=3;
 		}
-		if((i % 10 == 4 || i % 10 == 5 || i % 10 == 9) && (i % 100 < 10 || i % 100 > 19)){
+		if(i % 10 == 4 || i % 10 == 5 || i % 10 == 9){
 			count+=4;
 		}
-		if((i % 10 == 3 || i % 10 == 7 || i % 10 == 8) && (i % 100 < 10 || i % 100 > 19)){
+		if(i % 10 == 3 || i % 10 == 7 || i % 10 == 8){
 			count+=5;
 		}
-		//Tens place
-		if(Math.floor(i/10) % 10 == 2 || Math.floor(i/10) % 10 == 3 || Math.floor(i/10) % 10 == 8 || Math.floor(i/10) % 10 == 9){
-			count+=6;
-		}
-		if(Math.floor(i/10) % 10 == 4 || Math.floor(i/10) % 10 == 5 || Math.floor(i/10) % 10 == 6){
-			count+=5;
-		}
-		if(Math.floor(i/10) % 10 == 7){
-			count+=7;
-		}
-		//Hundreds place
-		if(i < 300 && i > 99){
-			count+=3;
-		}
-		if(i > 299 && i < 400){
-			count+=5;
-		}
-		if(i > 399 && i < 600){
-			count+=4;
-		} 
-		if(i > 599 && i < 700){
-			count+=3;
-		}
-		if(i > 699 && i < 900){
-			count+=5;
-		}
-		if(i > 899 && i < 1000){
-			count+=4;
-		}
+		
 	}
-		count+=11;
-		System.out.println(count);
+	}
   }
   //PROBLEM 19
   public void p19(){
