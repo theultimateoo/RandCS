@@ -342,6 +342,35 @@ public class ProjectEuler {
     }
     System.out.println(answer);
   }
+  
+  //PROBLEM 19
+  public void p19(){
+    int month; // 1 = January
+    int year;
+    int day = 1; // 0 = Sunday
+    int ans = 0;
+    for(year = 1901; year < 2000; year++){
+      for(month = 1; month < 13; month++){
+        if(month == 2 && year % 4 == 0){
+          day+=29;
+        }
+        else if(month == 2){
+          day+=28;
+        }
+        else if(month == 4 || month == 6 || month == 9 || month == 11){
+          day+=30;
+        }
+        else{
+          day+=31;
+        }
+        day = day % 7;
+        if (day == 0){
+          ans++;
+        }
+      }   
+    }
+    System.out.println(ans);
+  }  
   //PROBLEM 20
   public void p20(){
     BigInteger fact = new BigInteger("100");
@@ -408,8 +437,9 @@ public class ProjectEuler {
     // solutioner.p13();
     // solutioner.p15();
     // solutioner.p16();
+    solutioner.p19();
     // solutioner.p20();
-    solutioner.p25();
+    // solutioner.p25();
     // solutioner.p48();
   }
   
