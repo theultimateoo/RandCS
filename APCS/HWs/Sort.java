@@ -98,30 +98,31 @@ public class Sort {
 
   public void insertion(){
     int position;//position for testing
-    int comparer = 0;
+    int comparer = 0;//comparison items
     for(position = 0; position < list.length; position++){//start at each position
-	while (comparer < position){
-		if (list[position] < list[comparer]){
-			int c = comparer;
-			int p = position;
-			int decoy = list[position];
-			while (c < p){
-				list[p] = list[p - 1];
-				p--;
-			}
-			list[c] = decoy; 
-		}
-	}
+      while (comparer < position){//loop when comparer < position
+        if (list[position] < list[comparer]){//position item < comparer item, so shift
+          int c = comparer;
+          int p = position;
+          int decoy = list[position];
+          while(p > c){
+            list[p] = list[p-1];
+            p--;
+          }
+          list[c] = decoy;
+        }
+        comparer++;
+      }
+     comparer = 0; 
     }
   }
   
   public static void main(String[] args) {
     
     Sort s = new Sort(25);
-    
     System.out.println(s);
     s.insertion();
     System.out.println(s);
-  }  
+  } 
   
 }
