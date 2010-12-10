@@ -586,7 +586,7 @@ public class ProjectEuler {
     // solutioner.p17();
     // solutioner.p19();
     // solutioner.p20();
-    solutioner.p24();
+    // solutioner.p24();
     // solutioner.p25();
     // solutioner.p28();
     // solutioner.p48();
