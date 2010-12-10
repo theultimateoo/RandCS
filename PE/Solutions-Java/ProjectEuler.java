@@ -114,6 +114,15 @@ public class ProjectEuler {
     return answer;
   }
   
+  public long smallFactorial(int a){
+    long factorial = 1;
+    while(a > 1){
+      factorial = factorial * a;
+      a--;
+    }
+    return factorial;
+  }
+  
 //================================PROBLEM METHODS==========================================
   
   
@@ -344,74 +353,74 @@ public class ProjectEuler {
   }
   //PROBLEM 17
   public void p17(){
-	int count = 0;
-	//one, two, six, nine, four, five, seven, three, eight 
-	
-	for(int i = 1; i < 1000; i++){
-		if(i > 100 && i % 100 != 0){
-			count+=3;
-		}
-		if(i % 100 > 9  && i % 100 < 20){
-			if(i % 100 == 10){//ten
-				count+=3;
-			}
-			else if(i % 100 == 11 || i % 100 == 12){//eleven, twelve
-				count+=6;
-			}
-			else if(i % 100 == 13 || i % 100 == 14 || i % 100 == 18 || i % 100 == 19){//thirteen, fourteen, eighteen, nineteen
-				count+=8;
-			}
-			else if(i % 100 == 15 || i % 100 == 16){//fifteen, sixteen
-				count+=7;
-			}
-			else if(i % 100 == 17){
-				count+=9;
-			}
-		}
-		//Singles place		
-		if((i % 10 == 1 || i % 10 == 2 || i % 10 == 6) && (i % 100 < 10 || i % 100 > 19)){
-			count+=3;
-		}
-		if((i % 10 == 4 || i % 10 == 5 || i % 10 == 9) && (i % 100 < 10 || i % 100 > 19)){
-			count+=4;
-		}
-		if((i % 10 == 3 || i % 10 == 7 || i % 10 == 8) && (i % 100 < 10 || i % 100 > 19)){
-			count+=5;
-		}
-		//Tens place
-		if(Math.floor(i/10) % 10 == 2 || Math.floor(i/10) % 10 == 3 || Math.floor(i/10) % 10 == 8 || Math.floor(i/10) % 10 == 9){
-			count+=6;
-		}
-		if(Math.floor(i/10) % 10 == 4 || Math.floor(i/10) % 10 == 5 || Math.floor(i/10) % 10 == 6){
-			count+=5;
-		}
-		if(Math.floor(i/10) % 10 == 7){
-			count+=7;
-		}
-		//Hundreds place
-		if(i < 300 && i > 99){
-			count+=3;
-		}
-		if(i > 299 && i < 400){
-			count+=5;
-		}
-		if(i > 399 && i < 600){
-			count+=4;
-		} 
-		if(i > 599 && i < 700){
-			count+=3;
-		}
-		if(i > 699 && i < 900){
-			count+=5;
-		}
-		if(i > 899 && i < 1000){
-			count+=4;
-		}
-	}
-		count+=11;
-		count+=(900*7);
-		System.out.println(count);
-		}
+    int count = 0;
+    //one, two, six, nine, four, five, seven, three, eight 
+    
+    for(int i = 1; i < 1000; i++){
+      if(i > 100 && i % 100 != 0){
+        count+=3;
+      }
+      if(i % 100 > 9  && i % 100 < 20){
+        if(i % 100 == 10){//ten
+          count+=3;
+        }
+        else if(i % 100 == 11 || i % 100 == 12){//eleven, twelve
+          count+=6;
+        }
+        else if(i % 100 == 13 || i % 100 == 14 || i % 100 == 18 || i % 100 == 19){//thirteen, fourteen, eighteen, nineteen
+          count+=8;
+        }
+        else if(i % 100 == 15 || i % 100 == 16){//fifteen, sixteen
+          count+=7;
+        }
+        else if(i % 100 == 17){
+          count+=9;
+        }
+      }
+      //Singles place  
+      if((i % 10 == 1 || i % 10 == 2 || i % 10 == 6) && (i % 100 < 10 || i % 100 > 19)){
+        count+=3;
+      }
+      if((i % 10 == 4 || i % 10 == 5 || i % 10 == 9) && (i % 100 < 10 || i % 100 > 19)){
+        count+=4;
+      }
+      if((i % 10 == 3 || i % 10 == 7 || i % 10 == 8) && (i % 100 < 10 || i % 100 > 19)){
+        count+=5;
+      }
+      //Tens place
+      if(Math.floor(i/10) % 10 == 2 || Math.floor(i/10) % 10 == 3 || Math.floor(i/10) % 10 == 8 || Math.floor(i/10) % 10 == 9){
+        count+=6;
+      }
+      if(Math.floor(i/10) % 10 == 4 || Math.floor(i/10) % 10 == 5 || Math.floor(i/10) % 10 == 6){
+        count+=5;
+      }
+      if(Math.floor(i/10) % 10 == 7){
+        count+=7;
+      }
+      //Hundreds place
+      if(i < 300 && i > 99){
+        count+=3;
+      }
+      if(i > 299 && i < 400){
+        count+=5;
+      }
+      if(i > 399 && i < 600){
+        count+=4;
+      } 
+      if(i > 599 && i < 700){
+        count+=3;
+      }
+      if(i > 699 && i < 900){
+        count+=5;
+      }
+      if(i > 899 && i < 1000){
+        count+=4;
+      }
+    }
+    count+=11;
+    count+=(900*7);
+    System.out.println(count);
+  }
   //PROBLEM 19
   public void p19(){
     int month; // 1 = January
@@ -457,7 +466,60 @@ public class ProjectEuler {
     System.out.println(answer);
   }
   
-  
+  //PROBLEM 24
+  public void p24(){
+    int digitsRemaining[] = {0,1,2,3,4,5,6,7,8,9};
+    int digit = 0;
+    int a = 9;
+    long num = 1000000;
+    String s = "";
+    long comparer = smallFactorial(a);
+    for(a = 9; num != 0; a--){
+      while (num > comparer){//compare the number to a!
+        comparer+=smallFactorial(a);//subtract whenever necessary
+        digit++;//up index by 1
+        while(digitsRemaining[digit] == 1000){
+          digit++;
+        }
+      }
+      num = num - comparer + smallFactorial(a);//subtract off the number of factorials less than it
+      
+      comparer = smallFactorial(a-1);//set comparer
+      s = s + digitsRemaining[digit];
+      digitsRemaining[digit] = 1000;//"remove" the number from the array
+      digit = 0;
+      if(num == 1){//num = 1 case
+        int count = 0;
+        for(int i = 0; i < digitsRemaining.length; i++){          
+          if(digitsRemaining[digit] == 1000){
+            digit++;
+          }
+          else if(count == 0){
+            digit++;
+            count++;
+          }
+          else{
+            s = s + digitsRemaining[digit];
+            digitsRemaining[digit] = 1000;
+            digit++;
+          }
+        }
+        num--;
+        
+      }
+    }
+    digit = 0;
+    for(int i = 0; i < digitsRemaining.length; i++){          
+      if(digitsRemaining[digit] == 1000){
+        digit++;
+      }
+      else{
+        s = s + digitsRemaining[digit];
+        digit++;
+      }      
+    }
+    System.out.println(s);
+  }
   
   //PROBLEM 25
   public void p25(){
@@ -476,6 +538,21 @@ public class ProjectEuler {
     System.out.println(i);
   }
   
+  
+  //PROBLEM 28
+  public void p28(){
+    int answer = 1;
+    int k = 1;
+    
+    for(int x = 1; x < 501; x++){// x = spiral number (starting with 0, but not included)
+      for(int y = 0; y < 4; y++){// y = corner number
+        k = k+ x * 2;
+        answer = answer + k;
+      }
+    }
+    
+    System.out.println(answer);
+  }
   //PROBLEM 48
   public void p48(){
     BigInteger dummy = new BigInteger("1");
@@ -506,10 +583,12 @@ public class ProjectEuler {
     // solutioner.p13();
     // solutioner.p15();
     // solutioner.p16();
-	solutioner.p17();
+    // solutioner.p17();
     // solutioner.p19();
     // solutioner.p20();
+    solutioner.p24();
     // solutioner.p25();
+    // solutioner.p28();
     // solutioner.p48();
   }
   
