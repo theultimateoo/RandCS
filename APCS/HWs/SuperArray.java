@@ -36,6 +36,9 @@ public class SuperArray{
     array[number] = t;
     number++;
   }
+  public String get(int a){
+	
+  }
   public static void main(String[] args){
     SuperArray c = new SuperArray();
     c.add("Hi");
