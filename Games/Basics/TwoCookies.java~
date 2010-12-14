@@ -1,0 +1,9 @@
+import java.applet.Applet;
+import java.awt.*;
+
+public class twoCookies extends Applet{
+  public void paint(Graphics page){
+    page.setColor(Color.white);
+    page.fillRect(50,50,50,100);
+  }
+}
