@@ -1,0 +1,28 @@
+Kevin Peng
+12-17 HW
+
+a) public boolean conflictsWith(Appointment other){
+return getTime().overlapsWith(other.getTime());
+}
+b) public void clearConflicts(Appointment appt){
+int i = 0;
+while(i < apptList.size()){
+	if(appt.conflictsWith((Appointment)(apptList.get(i))))
+		apptList.remove(i);
+	else{
+		i++;
+		}
+	}
+}
+c)public boolean addAppt(Appointment appt, boolean emergency){
+	if(emergency == true)
+		clearConflicts(appt);
+	else{
+		for(int i = 0; i < apptList.size();i++){
+			if(appt.conflictsWith((Appointment)apptList.get(i) == true)
+				return false;
+		}
+	}
+	return apptList.add(appt);
+}
+		
